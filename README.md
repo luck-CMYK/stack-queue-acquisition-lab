@@ -231,7 +231,6 @@ test/                六个测试程序、断言辅助和分配审计
 bench/               统一性能实验程序
 scripts/             编译、测试、验收、实验入口
 Makefile             MinGW Make入口
-运行演示.cmd         Windows启动入口
 ```
 
 ## 常见问题
