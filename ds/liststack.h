@@ -4,6 +4,7 @@
 
 typedef struct StackNode { int value; struct StackNode *next; } StackNode;
 typedef struct { StackNode *top; size_t size; } ListStack;
+/* init accepts a new/destroyed object. Destroy before reinitializing live nodes. */
 void ls_init(ListStack *s);
 void ls_destroy(ListStack *s);
 int ls_push(ListStack *s, int value);

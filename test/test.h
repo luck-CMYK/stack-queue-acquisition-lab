@@ -3,6 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 /* A failing assertion returns normally; no abort/crash dump is needed. */
 #define CHECK(condition) do { \
@@ -14,6 +17,9 @@
 
 typedef int (*TestFn)(void);
 static inline void run_test(const char *name, TestFn fn, int *total, int *failed) {
+#ifdef _WIN32
+    SetErrorMode(GetErrorMode() | SEM_NOGPFAULTERRORBOX);
+#endif
     ++*total;
     if (fn()) { ++*failed; printf("[FAIL] %s\n", name); }
     else printf("[PASS] %s\n", name);

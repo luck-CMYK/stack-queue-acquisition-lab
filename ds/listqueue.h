@@ -4,6 +4,7 @@
 
 typedef struct QueueNode { int value; struct QueueNode *next; } QueueNode;
 typedef struct { QueueNode *front, *rear; size_t size; } ListQueue;
+/* init accepts a new/destroyed object. Destroy before reinitializing live nodes. */
 void lq_init(ListQueue *q);
 void lq_destroy(ListQueue *q);
 int lq_enqueue(ListQueue *q, int value);
